@@ -1,0 +1,22 @@
+Rails404
+========
+
+Rails404 is a easy way to generate 404 and 500 pages that have your current layout. It's based upon this blog post http://blog.peelmeagrape.net/2008/8/14/pre-generating-rails-404-and-500-pages-using-layouts-and-rake#disqus_thread which is based off this blog post http://stateofflux.com/2008/7/14/generate-static-pages-in-rails/ and I still don't quite like this solution but it's the best I've found for handling 404 and 500 pages in Rails with layouts that frequently change.
+
+
+Example
+=======
+
+Run "rake generate:static_pages RAILS_ENV=production" to generate the pages. Or add a cap hook
+
+namespace :deploy do
+  task :generate_static_pages do
+    invoke_command "cd #{release_path} && rake generate:static_pages RAILS_ENV=#{rails_env}" 
+  end
+end
+
+after "deploy:finalize_update", "deploy:generate_static_pages" 
+
+
+
+Copyright (c) 2009 Eric Cranston, released under the MIT license
