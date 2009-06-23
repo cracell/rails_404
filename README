@@ -3,6 +3,10 @@ Rails404
 
 Rails404 is a easy way to generate 404 and 500 pages that have your current layout. It's based upon this blog post http://blog.peelmeagrape.net/2008/8/14/pre-generating-rails-404-and-500-pages-using-layouts-and-rake#disqus_thread which is based off this blog post http://stateofflux.com/2008/7/14/generate-static-pages-in-rails/ and I still don't quite like this solution but it's the best I've found for handling 404 and 500 pages in Rails with layouts that frequently change.
 
+Note: The domain for non-relative paths is gotten form APP_CONFIG[:site_url] if not provided it defaults to 'www.example.com'.
+
+Tested on Rails 2.3
+
 
 Example
 =======
